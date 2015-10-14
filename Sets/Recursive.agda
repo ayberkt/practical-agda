@@ -60,10 +60,10 @@ sample' = node' one leaf' leaf'
 
 data List : Set where
   ε   : List
-  element : ℕ → List → List
+  elem : ℕ → List → List
 
 sample-list : List
-sample-list = (element one (element two (element three ε)))
+sample-list = (elem one (elem two (elem three ε)))
 
 data NonEmptyList : Set where
   last            : ℕ → NonEmptyList
