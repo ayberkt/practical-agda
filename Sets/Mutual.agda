@@ -19,7 +19,7 @@ data ℳ where
 -- | An element of ℳ is a type _::_ consisting of a bool and
 -- | some x : ℒ.
 
--- Exercise TODO: Define a small grammar.
+-- Exercise
 -- Extremely simplified phrase-structure rules
 -- for English, with limited vocabulary.
 -- This can generate sentences like
