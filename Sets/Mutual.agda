@@ -21,7 +21,7 @@ data ℳ where
 
 -- Exercise
 -- Extremely simplified phrase-structure rules
--- for English, with limited vocabulary.
+-- for English, each POS containing 2-3 sample words.
 -- This can generate sentences like
 --   "all coyotes eat carrots"
 --   "some rabbits wash the carrots"
@@ -62,3 +62,6 @@ utterance-1 = S' (NP' some rabbits) (VP' wash (NP' the carrots))
 -- All coyotes kill some rabbits
 utterance-2 : S
 utterance-2 = S' (NP' all coyotes) (VP'  kill (NP' some rabbits))
+
+utterance-3 : S
+utterance-3 = S' (NP' all coyotes) (VP' eat (NP' ε carrots))
