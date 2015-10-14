@@ -51,8 +51,14 @@ data VP : Set where
 data S : Set where
   S' : NP → VP → S
 
+-- All coyotes eat carrots.
 utterance : S
 utterance = S' (NP' all coyotes) (VP' eat (NP' ε carrots))
 
+-- Some rabbits wash the carrots.
 utterance-1 : S
 utterance-1 = S' (NP' some rabbits) (VP' wash (NP' the carrots))
+
+-- All coyotes kill some rabbits
+utterance-2 : S
+utterance-2 = S' (NP' all coyotes) (VP'  kill (NP' some rabbits))
