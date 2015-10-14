@@ -6,13 +6,6 @@ data ℕ : Set where
   zero : ℕ
   suc  : ℕ → ℕ
 
-one : ℕ
-one = (suc zero)
-
-two : ℕ
-two = (suc (suc zero))
-
-
 -- | Exercise
 data ℤ : Set where
   zero : ℤ
@@ -44,13 +37,37 @@ data TreeℕLeaves : Set where
   leaf : ℕ → TreeℕLeaves
   node : TreeℕLeaves → TreeℕLeaves  → TreeℕLeaves
 
+
+-- | Declare a few natural numbers for convenience
+one : ℕ
+one = suc zero
+
+two : ℕ
+two = suc one
+
+three : ℕ
+three = suc two
+
 sample : TreeℕLeaves
-sample = node (leaf (suc zero)) (leaf (suc zero))
+sample = node (leaf one) (leaf zero)
 
 data TreeWℕNodes : Set where
   leaf' : TreeWℕNodes
   node' : ℕ → TreeWℕNodes → TreeWℕNodes → TreeWℕNodes
 
 sample' : TreeWℕNodes
-sample' = node' (suc zero) leaf' leaf'
+sample' = node' one leaf' leaf'
 
+data List : Set where
+  ε   : List
+  element : ℕ → List → List
+
+sample-list : List
+sample-list = (element one (element two (element three ε)))
+
+data NonEmptyList : Set where
+  last            : ℕ → NonEmptyList
+  elem'           : ℕ → NonEmptyList → NonEmptyList
+
+sample-list' : NonEmptyList
+sample-list' = (elem' one (elem' two (last three)))
