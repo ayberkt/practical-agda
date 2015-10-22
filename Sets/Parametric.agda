@@ -64,7 +64,4 @@ y2 = inj₂ (inj₁ tt)
 y3 : ⊤ ⊎ (⊤ ⊎ ⊤)
 y3 = inj₁ tt
 
-
-
-
 infixr 1 _⊎_
