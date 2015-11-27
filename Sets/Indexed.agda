@@ -42,10 +42,24 @@ p₂ = true′
 --     even numbers contain one element and the others are empty!
 data Bar : ℕ → Set where
   zero  : Bar 0
-  even  : (n : ℕ) → Bar (pred (pred n)) → Bar n
+  even  : (n : ℕ) → Bar n → Bar (suc (suc n))
 
 y₁ : Bar 2
-y₁ = even 2 zero
+y₁ = even 0 zero
 
 y₂ : Bar 4
-y₂ = even 4 (even 2 zero)
+y₂ = even 2 (even 0 zero)
+
+-- | Exercise
+--     Define a Bool-indexed family of sets with two parameters, A and B
+--     such that the set indexed by false contains an A element and the
+--     set indexed by true contains a B element
+data Baz (A : Set) (B : Set) : Bool → Set where
+  𝓐 : A → Baz A B true
+  𝓑 : B → Baz A B false
+
+a : Baz Bool ℕ true
+a = 𝓐 true
+
+b : Baz Bool ℕ false
+b = 𝓑 42
