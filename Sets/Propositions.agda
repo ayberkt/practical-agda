@@ -44,3 +44,20 @@ j₄ = inj₁ tt
 
 j₅ : ⊥ ⊎ ⊤ ⊎ ⊤ × (⊥ ⊎ ⊥) ⊎ ⊤
 j₅ = inj₂ (inj₁ tt)
+
+data _≤_ : ℕ → ℕ → Set where
+  z≤n : {n : ℕ} → zero ≤ n
+  s≤s : {m : ℕ} → {n : ℕ} → m ≤ n → suc m ≤ suc n
+
+infix 4 _≤_
+
+0≤1 : 0 ≤ 1
+0≤1 = z≤n
+
+1≤2 : 1 ≤ 2
+1≤2 = s≤s (z≤n)
+
+-- | Exercise
+--    Prove that 3 ≤ 7
+3≤7 : 3 ≤ 7
+3≤7 = s≤s (s≤s (s≤s (z≤n)))
