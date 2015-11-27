@@ -64,4 +64,8 @@ y2 = inj₂ (inj₁ tt)
 y3 : ⊤ ⊎ (⊤ ⊎ ⊤)
 y3 = inj₁ tt
 
+-- | The ⊥ type would serve this purpose.
+
+
+
 infixr 1 _⊎_
